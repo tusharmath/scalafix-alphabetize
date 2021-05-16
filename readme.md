@@ -24,7 +24,7 @@ trait A {
 
 # Usage
 
+From the `sbt` console 
 ```scala
-sbt
-> scalafix https://raw.githubusercontent.com/tusharmath/scalafix-alphabetize/master/rules/src/main/scala/fix/ScalafixAlphabetize.scala
+scalafix https://raw.githubusercontent.com/tusharmath/scalafix-alphabetize/master/rules/src/main/scala/fix/ScalafixAlphabetize.scala
 ```
