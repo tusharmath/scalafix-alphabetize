@@ -48,7 +48,7 @@ lazy val tests = project
     scalafixTestkitInputSourceDirectories :=
       (input / Compile / unmanagedSourceDirectories).value,
     scalafixTestkitInputClasspath :=
-      (input / Compile / fullClasspath).value,
+      (input / Compile / fullClasspath).value
   )
   .dependsOn(rules)
   .enablePlugins(ScalafixTestkitPlugin)

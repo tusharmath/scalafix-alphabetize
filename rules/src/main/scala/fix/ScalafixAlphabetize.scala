@@ -9,9 +9,9 @@ class ScalafixAlphabetize extends SemanticRule("ScalafixAlphabetize") {
       case d: Defn.Def => (d, d.name.value)
       case d: Decl.Def => (d, d.name.value)
     })
-    
+
     val defDefinitionSorted = defDefinition.sortBy(_._2).map(_._1)
-    val finalDef = defDefinition
+    val finalDef            = defDefinition
       .map(_._1)
       .zip(defDefinitionSorted)
       .map({ case (d1, d2) =>

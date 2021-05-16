@@ -9,8 +9,8 @@ object ScalafixAlphabetize {
     def a: Unit
   }
 
-  def b = ()
-  def a = ()
+  def b         = ()
+  def a         = ()
   private def c = ()
 
   val d = new A {
