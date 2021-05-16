@@ -1,4 +1,6 @@
 # Alphabetize
+![Github Actions](https://github.com/tusharmath/scalafix-alphabetize/actions/workflows/ci.yml/badge.svg)
+
 
 Alphabetically sorts the methods in a file
 
