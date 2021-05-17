@@ -1,4 +1,4 @@
-# Alphabetize
+# ScalaFix lphabetize
 ![Github Actions](https://github.com/tusharmath/scalafix-alphabetize/actions/workflows/ci.yml/badge.svg)
 
 
