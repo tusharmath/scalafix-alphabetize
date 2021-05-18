@@ -1,17 +1,26 @@
 package fix
 
 object ScalafixAlphabetize {
-  trait A {
-    def a: Unit
-    def b: Unit
+  trait T1 {
+    def t1a: Unit
+    def t1b: Unit
   }
 
-  def a         = ()
-  def b         = ()
+  trait T2 {
+    def t2x: Unit
+  }
+
+  def a = ()
+  def b = ()
+
   private def c = ()
 
-  val d = new A {
-    override def a: Unit = ()
-    override def b: Unit = ()
+  def e = new T2 {
+    override def t2x: Unit = ()
+  }
+
+  val d = new T1 {
+    override def t1a: Unit = ()
+    override def t1b: Unit = ()
   }
 }

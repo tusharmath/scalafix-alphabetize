@@ -4,17 +4,26 @@ rule = ScalafixAlphabetize
 package fix
 
 object ScalafixAlphabetize {
-  trait A {
-    def b: Unit
-    def a: Unit
+  trait T1 {
+    def t1b: Unit
+    def t1a: Unit
   }
 
-  def b         = ()
-  def a         = ()
+  trait T2 {
+    def t2x: Unit
+  }
+
+  def b = ()
+  def a = ()
+
+  def e = new T2 {
+    override def t2x: Unit = ()
+  }
+
   private def c = ()
 
-  val d = new A {
-    override def b: Unit = ()
-    override def a: Unit = ()
+  val d = new T1 {
+    override def t1b: Unit = ()
+    override def t1a: Unit = ()
   }
 }

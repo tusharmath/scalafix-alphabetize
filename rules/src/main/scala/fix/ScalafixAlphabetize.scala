@@ -6,19 +6,16 @@ import scala.meta._
 class ScalafixAlphabetize extends SemanticRule("ScalafixAlphabetize") {
   def patchTemplate(t: Template): Patch = {
     val defDefinition = t.stats.collect({
-      case d: Defn.Def => (d, d.name.value)
-      case d: Decl.Def => (d, d.name.value)
+      case (d: Defn.Def) => (d, d.name.value)
+      case (d: Decl.Def) => (d, d.name.value)
     })
 
-    val defDefinitionSorted = defDefinition.sortBy(_._2).map(_._1)
-    val finalDef            = defDefinition
-      .map(_._1)
-      .zip(defDefinitionSorted)
-      .map({ case (d1, d2) =>
-        Patch.replaceTree(d1, d2.syntax)
-      })
+    if (defDefinition.length <= 1) return Patch.empty
 
-    Patch.fromIterable(finalDef)
+    val unsortedDefs = defDefinition.map(_._1)
+    val sortedDefs   = defDefinition.sortBy(_._2).map(_._1)
+
+    (unsortedDefs zip sortedDefs).map({ case (t1, t2) => Patch.replaceTree(t1, t2.syntax) }).asPatch
   }
 
   override def fix(implicit doc: SemanticDocument): Patch = {
